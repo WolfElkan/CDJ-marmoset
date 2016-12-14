@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Marmosets</title>
+	</head>
+	<body>
+		<h1>Marmosets!</h1>
+		<table>
+			<% for (m in marmosets) { %>
+			<tr>
+				<td><a href="/marms/<%= marmosets[m]._id %>"><%= marmosets[m].name %></a></td>
+				<td>
+					<a href="/marms/edit/<%= marmosets[m]._id %>">
+						<button>Edit</button>
+					</a>
+				</td>
+				<td>
+					<form action="/marms/destroy/<%= marmosets[m]._id %>" method="post">
+						<input type="hidden" name="id" value="<%= marmosets[m]._id %>">
+						<input type="submit" value="Delete">
+					</form>
+				</td>
+			</tr>
+			<% } %>
+		</table>
+		<a href="/marms/new"><button>Add New Marmoset</button></a><br>
+		<a href="https://www.youtube.com/watch?v=4oiLfTnrC40">Hear them sing!</a>
+	</body>
+</html>
